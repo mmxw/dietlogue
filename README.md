@@ -36,6 +36,7 @@ Launch on [Heroku](https://diet-log.herokuapp.com/). Check out the GitHub [Repo]
 - JWT
 - Moment.js
 - Yarn
+- Pip 
 - Python
 - Django
 - Django Rest Framework

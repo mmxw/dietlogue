@@ -21,21 +21,21 @@ class NewLog extends React.Component {
   async componentDidMount() {
     const logId = this.props.match.params.id
     try {
-      const res = await Promise.all([
+      const response = await Promise.all([
         axios.get('/api/foods/'),
         axios.get(`/api/logs/${logId}`)
       ])
       const foodOptions = []
-      res[0].data.map(el => {
+      response[0].data.map(el => {
         const foodObject = {}
         foodObject['value'] = el.id
         foodObject['label'] = el.name
         foodOptions.push(foodObject)
       })
-      const currentEntry = res[1].data
+      const currentEntry = response[1].data
       this.setState({
         foodOption: foodOptions,
-        foodData: res[0].data,
+        foodData: response[0].data,
         formData: currentEntry
       })
     } catch (error) {
@@ -88,22 +88,26 @@ class NewLog extends React.Component {
   handlePortion = e => {
     const name = e.target.getAttribute('name')
 
-    if (name === 'increase') {
-      const formData = {
-        ...this.state.formData,
-        portion: this.state.formData.portion + 1
-      }
-      this.setState({ formData })
-    } else if (name === 'decrease') {
-      if (this.state.formData.portion === 1) {
-        return
-      }
-      const formData = {
-        ...this.state.formData,
-        portion: this.state.formData.portion - 1
-      }
-      this.setState({ formData })
+    switch (name) {
+      case "increase": 
+        const formData = {
+          ...this.state.formData,
+          portion: this.state.formData.portion + 1
+        }
+        this.setState({ formData })
+        break
+      case "decrease": 
+        if (this.state.formData.portion === 1) return
+        else {
+          const formData = { 
+            ...this.state.formData, 
+            portion: this.state.formData.portion - 1
+          }
+        } 
+        this.setState({ formData })  
+        break
     }
+ 
   }
 
   render() {

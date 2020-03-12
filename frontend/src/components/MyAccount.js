@@ -1,9 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
-import Authentication from "./Authentication";
-import Plot from "react-plotly.js";
-const moment = require("moment");
+import React from 'react'
+import axios from 'axios'
+import Authentication from './Authentication'
+import Plot from 'react-plotly.js'
+const moment = require('moment')
 
 const dietOptions = {
   option1: {
@@ -67,11 +66,12 @@ class MyAccount extends React.Component {
 
   async componentDidMount() {
     try {
-      const res = await axios.get("/api/myaccount", {
+      const res = await axios.get('/api/myaccount/', {
         headers: {
           Authorization: `Bearer ${Authentication.getToken("token")}`
         }
-      });
+      })
+      console.log('res', res.data)
       this.setState({ userData: res.data }, () => {
         this.setUserData();
         this.setDailyLogEntries();
@@ -142,24 +142,17 @@ class MyAccount extends React.Component {
   };
 
   unpackNutrients = date => {
-    const dateFoodArr = Object.entries(this.state.dailyLogEntries);
-    // console.log(dateFoodArr, 'datefoodarr')
-    const currentEntry = dateFoodArr.filter(
-      dateFoodItem => dateFoodItem.flat(2)[0] === date
-    );
-    return currentEntry.flat(2);
-  };
+    const dateFoodArr = Object.entries(this.state.dailyLogEntries)
+    const currentEntry = dateFoodArr.filter(dateFoodItem => (dateFoodItem.flat(2))[0] === date)
+    return currentEntry.flat(2)
+  }
 
   calculateDailyTotal = (date, nutrient) => {
-    const nutrientEntries = this.unpackNutrients(date);
-    // console.log(nutrientEntries, 'nutriententries')
-    const nutrients = nutrientEntries.filter(
-      entry => typeof entry !== "string"
-    );
-    // console.log(nutrients, 'nutrients')
-    const dailyNutrients = nutrients.map(
-      foodItem => Number(foodItem.food[nutrient]) * Number(foodItem.portion)
-    );
+    const nutrientEntries = this.unpackNutrients(date)
+    const nutrients = nutrientEntries
+      .filter(entry => typeof entry !== 'string')
+    const dailyNutrients = nutrients.map(foodItem => Number(foodItem.food[nutrient]) * Number(foodItem.portion)
+    ) 
     const dailyTotal = dailyNutrients.reduce(
       (a, b) => parseFloat(a) + parseFloat(b),
       0
@@ -178,7 +171,7 @@ class MyAccount extends React.Component {
   };
 
   render() {
-    // console.log(this.calculateDailyTotal('2020-03-03', 'fat'))
+    console.log(this.state)
     return (
       <section className="section">
         <div className="container">

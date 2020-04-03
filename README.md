@@ -32,15 +32,17 @@ Timeframe: 6 days.
         <img src="/readme-images/quickdbd.png" width=550px height=300px>
 
 - Then we planned what we want each page to look like using wireframe:
-<img src="/readme-images/home-mobile.png" width=300px height=300px>
-<img src="/readme-images/register.png" width=150px height=300px><img src="/readme-images/login.png" width=150px height=300px>
-<img src="/readme-images/my-account-mobile.png" width=300px height=300px>
-<img src="/readme-images/my-account-web.png" width=300px height=300px>
-<img src="/readme-images/log-history.png" width=300px height=300px>
+<span>
+        <img src="/readme-images/home-mobile.png" width=300px height=300px><span> </span>
+        <span><img src="/readme-images/register.png" width=150px height=300px><img src="/readme-images/login.png" width=150px height=300px></span> 
+        <img src="/readme-images/my-account-mobile.png" width=300px height=300px>
+</span>
+<span>
+        <img src="/readme-images/my-account-web.png" width=300px height=300px>
+        <img src="/readme-images/log-history.png" width=300px height=300px>
+</span>
 
-
-
-We decided to work on the backend doing pair programming and put just a list of frontend tasks to work separately on different parts.
+- We decided to work on the backend doing pair programming and put just a list of frontend tasks to work separately on different parts.
 ```
 TODO:
 X register form
@@ -53,7 +55,7 @@ X add history button to navbar and history page with just all logs listed in des
 X portion unit conditional on the type of food - replaced with portion helper data, showing how much in grams
 X my account
   X layout
-  - chart
+  X chart
 
 X secure route
 X replace requests with token from Auth
@@ -72,7 +74,7 @@ X add diet depending on age
 - footer
 X styling:
   X logo
-  - fonts
+  X fonts
   X slogan 
   X style register
 - refactor and de-structure

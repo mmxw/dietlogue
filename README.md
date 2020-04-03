@@ -128,6 +128,9 @@ class User(AbstractUser):
     profile_image = models.CharField(max_length=500, blank=True)
 ```
 ### Frontend
+**Register & Login**: we use the built-in authentication of Django 
+
+
 **Create new log**: we used React Select component for food selection pulling the data from our food database. We also have a helper function to show a hint data for selected product.
 
 ```JavaScript
@@ -139,7 +142,7 @@ dataHelper = () => {
   this.setState({ helperData: foodItem })
 }
 ```
-<span><img src="/readme-images/new-log.png" width=150px height=300px /><span>   </span><img src="/readme-images/helper.png" width=150px height=300px /></span>
+<span><img src="/readme-images/new-log.png" width=200px height=350px /><span>      </span><img src="/readme-images/helper.png" width=200px height=350px /></span>
 
 
 **My account**: we added dropdown to select a nutrient and progress bar to show daily intake of each type of nutrition compared to the standard recommendation. We also decided to implement recommended daily allowance based age and gender. 
@@ -207,13 +210,9 @@ One major bug we hit was a 403 error for authentication:
 
 ## Wins
 - Working MVP level full stack app
-- Great experience in working with another type of workflow
-- Practice in pair programming and team work
+- Practice pair programming and team work
 - More practice in planning ahead due to the need to setup proper database structure and relationships
-- Getting my self familiar with Model-View-Template pattern
-- Nice looking chart
-
-
+- Nice looking chart :) 
 
 
 ## Future Features

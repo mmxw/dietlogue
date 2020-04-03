@@ -14,19 +14,19 @@ Timeframe: 6 days.
 - **Be deployed online** so it's publicly accessible.
 - **You May** use the React Hooks syntax on your front end, but the responsibility of this will be largely on yourself.
 
-## Features
-- Users can create an account and log food they eat 
-- A chart displaying the weekly trend of nutrition intakes
-- A progress bar displaying the daily intake of nutritions compared to the recommended daily value of nutrition 
-- A detailed log of daily food intakes and their nutrition values
-- Logs can be edited and back-dated. 
+## User Story
+- User can create an account and log food they eat 
+- User can see a chart displaying the weekly trend of nutrition intakes on their account page
+- User can see a progress bar displaying the daily intake of nutritions compared to the recommended daily value of nutrition on their account page
+- User can see a detailed log of daily food intakes and their nutrition values on their account page
+- User can edit logs and back-date missing logs
 
 ## Technologies Used
 - Frontend: JavaScript (ES6), HTML5, SCSS, Bulma CSS Framework, React.js, Moment.Js, Plotly.js
 - Backend: Python, JWT, Django, Django REST Framework
 - Other: Git, GitHub, Yarn, Pip, Heroku
 
-## Design process
+## Design Process
 
 - We started with building our database relationship using Quick DBD software (https://www.quickdatabasediagrams.com/):
         <img src="/readme-images/quickdbd.png" width=550px height=300px>
@@ -42,7 +42,8 @@ Timeframe: 6 days.
         <img src="/readme-images/log-history.png" width=300px height=300px>
 </span>
 
-- We decided to work on the backend doing pair programming and put just a list of frontend tasks to work separately on different parts.
+- We decided to work on the backend doing pair programming 
+- We put together a list of frontend tasks to work separately on different parts
 ```
 TODO:
 X register form
@@ -84,9 +85,8 @@ X remove console.logs
 X style table rows to show as link
 ```
 
-### Functionality
-
-Next step was to build backend. We decided to create an ancillary food database that we would populate later with food details. This way we could expand functionality for users to be able to add their own food items.
+### Backend 
+**Food Model**: We decided to create an ancillary food database that we would populate later with food details. This way we could expand functionality for users to be able to add their own food items.
 
 ```Python
 class Food(models.Model):
@@ -104,8 +104,7 @@ class Food(models.Model):
     def __str__(self):
         return self.name
 ```
-
-The log models is relatively simple having just food id, portion, owner and date. Originally instead of date we have put automatic created_at field, but then we thought that user should have an option to choose the date to fill details for previous days.
+**Log Model**: The log models is relatively simple having just food id, portion, owner and date. Originally instead of date we have put automatic created_at field, but then we thought that user should have an option to choose the date in order to back-date missing logs.
 
 ```Python
 class Log(models.Model):
@@ -115,9 +114,7 @@ class Log(models.Model):
     date = models.DateField()
 ```
 
-#### User
-
-We expanded built-in Django user model to include our custom fields
+**User Model**: We expanded the built-in Django user model to include our custom fields
 ```Python
 class User(AbstractUser):
     GENDER_CHOICES = (
@@ -130,9 +127,8 @@ class User(AbstractUser):
     dob = models.DateField(max_length=8)
     profile_image = models.CharField(max_length=500, blank=True)
 ```
-
-#### Create new log
-After setting up the frontend we went working on separate component. I have started working on create new log component. I have used React Select component for food selection pulling the data from our food database. After that I created a helper function to show a hint data for selected product.
+### Frontend
+**Create new log**: we used React Select component for food selection pulling the data from our food database. We also have a helper function to show a hint data for selected product.
 
 ```JavaScript
 dataHelper = () => {
@@ -143,12 +139,10 @@ dataHelper = () => {
   this.setState({ helperData: foodItem })
 }
 ```
+<span><img src="/readme-images/new-log.png" width=150px height=300px /><span>   </span><img src="/readme-images/helper.png" width=150px height=300px /></span>
 
-![new-log1](/readme-images/new-log.png)
-![new-log2](/readme-images/helper.png)
 
-#### My account
-I have built out my account layout, while Xuan was working on chart implementation. I have added dropdown to select a nutrient and progress bar to show daily progress. Also we decide to implement recommended daily allowance based age and gender. Therefore I had to put quite big if-else statement.
+**My account**: we added dropdown to select a nutrient and progress bar to show daily intake of each type of nutrition compared to the standard recommendation. We also decided to implement recommended daily allowance based age and gender. 
 
 ```JavaScript
 setUserData = () => {
@@ -193,7 +187,7 @@ setUserData = () => {
   }
 ```
 
-#### Log history
+**Log history**:
 For log history I decided simply to use a table with all record. Table looked nice on mobile with ability to scroll horizontally and keep the layout neat. To make every row a link leading to an edit form I tried to use react-router <Link>, however it throw and error and did not work. I googled a lit bit and decided that best way would be just use onClick function and redirect to edit form.
 
 ```html
@@ -206,18 +200,12 @@ For log history I decided simply to use a table with all record. Table looked ni
 >
 ```
 
-#### Journal
-I have also created a journal model, for user to be able to record their diet notes, but it was not added to the final MVP product.
-
 ## Bugs
+One major bug we hit was a 403 error for authentication: 
 
-There are no major bugs. I could not populate React Select form on Edit form, the data is being pulled, but the food items is represented by id and not text. I tried few different things, but could not make it work with React Select. Maybe worth refactoring and using built-in HTML select tag.
-On the chart Y axis has zero for future dates, that makes chart look not fully correct
 
-## Wins and Blockers
 
-Wins:
-
+## Wins
 - Working MVP level full stack app
 - Great experience in working with another type of workflow
 - Practice in pair programming and team work
@@ -225,10 +213,8 @@ Wins:
 - Getting my self familiar with Model-View-Template pattern
 - Nice looking chart
 
-Blockers:
 
-- I have spent to much time to populate React Select component on edit form and still could not figure it out
-- We did not implement user edit profile, which I think should be part of mvp
+
 
 ## Future Features
 

@@ -1,19 +1,9 @@
-# SEI-45-Project-3-MERN
+# Dietlogue <img src="frontend/src/assets/logo-notext.png" width=70px height=35px>
+A food nutrition tracker built with React + Django
 
-# **Project 4: Dietlogue** <img align="right" src="https://camo.githubusercontent.com/6ce15b81c1f06d716d753a61f5db22375fa684da/68747470733a2f2f67612d646173682e73332e616d617a6f6e6177732e636f6d2f70726f64756374696f6e2f6173736574732f6c6f676f2d39663838616536633963333837313639306533333238306663663535376633332e706e67"/>
+Timeframe: 6 days. 
 
-## Overview
-
-Dietlogue - is a food tracker app. Users can create an account and log food they eat. The data is displayed in their account in the form of weekly chart and daily records. Logs can be edited and back dated.
-
-This was my forth (and last) project as part of the General Assembly Software Engineering Immersive course.
-The goal was to build a full stack web application using Python+Django framework and React frontend.
-
-Timeframe: 6 days.
-
-Launch on [Heroku](https://diet-log.herokuapp.com/). Check out the GitHub [Repo](https://github.com/nlukjanov/SEI-45-Project-4-Django-React).
-
-## Brief
+## Project Brief
 
 - **Build a full-stack application** by making your own backend and your own front-end
 - **Use a Python Django API** using Django REST Framework to serve your data from a Postgres database
@@ -24,40 +14,30 @@ Launch on [Heroku](https://diet-log.herokuapp.com/). Check out the GitHub [Repo]
 - **Be deployed online** so it's publicly accessible.
 - **You May** use the React Hooks syntax on your front end, but the responsibility of this will be largely on yourself.
 
+## Features
+- Users can create an account and log food they eat 
+- A chart displaying the weekly trend of nutrition intakes
+- A progress bar displaying the daily intake of nutritions compared to the recommended daily value of nutrition 
+- A detailed log of daily food intakes and their nutrition values
+- Logs can be edited and back-dated. 
+
 ## Technologies Used
+- Frontend: JavaScript (ES6), HTML5, SCSS, Bulma CSS Framework, React.js, Moment.Js, Plotly.js
+- Backend: Python, JWT, Django, Django REST Framework
+- Other: Git, GitHub, Yarn, Pip, Heroku
 
-- React
-- JavaScript (ES6)
-- HTML5
-- SCSS
-- Bulma CSS Framework
-- Git
-- GitHub
-- JWT
-- Moment.js
-- Yarn
-- Pip 
-- Python
-- Django
-- Django Rest Framework
-- Heroku
-- Trello
+## Design process
 
-## Approach Taken
+- We started with building our database relationship using Quick DBD software (https://www.quickdatabasediagrams.com/):
+        <img src="/readme-images/quickdbd.png" width=550px height=300px>
 
-I decided to join forces with another classmate and work on the project together as it was another good opportunity to practice team work. She had an idea of the project and after brief discussion we have agreed on what exactly we would like to build and how it should look like.
+- Then we planned what we want each page to look like using wireframe:
+<img src="/readme-images/home-mobile.png" width=300px height=300px>
+<img src="/readme-images/register.png" width=150px height=300px><img src="/readme-images/login.png" width=150px height=300px>
+<img src="/readme-images/my-account-mobile.png" width=300px height=300px>
+<img src="/readme-images/my-account-web.png" width=300px height=300px>
+<img src="/readme-images/log-history.png" width=300px height=300px>
 
-We started with building our database relationship using Quick DBD software (https://www.quickdatabasediagrams.com/):
-![database1](/readme-images/quickdbd.png)
-
-After that I have built wireframes based on our discussion.
-
-![wireframes1](/readme-images/home-mobile.png)
-![wireframes2](/readme-images/register.png)
-![wireframes3](/readme-images/login.png)
-![wireframes4](/readme-images/my-account-mobile.png)
-![wireframes5](/readme-images/my-account-web.png)
-![wireframes6](/readme-images/log-history.png)
 
 
 We decided to work on the backend doing pair programming and put just a list of frontend tasks to work separately on different parts.

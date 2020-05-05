@@ -203,11 +203,6 @@ For log history I decided simply to use a table with all record. Table looked ni
 >
 ```
 
-## Bugs
-One major bug we hit was a 403 error for authentication: 
-
-
-
 ## Wins
 - Working MVP level full stack app
 - Practice pair programming and team work

@@ -28,7 +28,7 @@ Timeframe: 6 days.
 
 ## Design Process
 
-- We started with building our database relationship using Quick DBD software (https://www.quickdatabasediagrams.com/):
+- We started with building our database relationship using Quick DBD software:
         <img src="/readme-images/quickdbd.png" width=550px height=300px>
 
 - Then we planned what we want each page to look like using wireframe:
